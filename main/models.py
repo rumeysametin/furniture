@@ -38,7 +38,6 @@ class Product(models.Model):
     title = models.CharField(max_length=100)
     image = models.ImageField(upload_to="product_imgs/")
     detail = models.TextField()
-    price = models.PositiveIntegerField()
     category =models.ForeignKey(Category, on_delete=models.CASCADE)
     cod =models.ForeignKey(Productcode, on_delete=models.CASCADE)
     brand =models.ForeignKey(Brand, on_delete=models.CASCADE)
@@ -48,3 +47,12 @@ class Product(models.Model):
 
     def __str__(self):
         return self.title
+    
+class ProductAttribute(models.Model):
+    product =models.ForeignKey(Product, on_delete=models.CASCADE)
+    color =models.ForeignKey(Color, on_delete=models.CASCADE)
+    material =models.ForeignKey(Material, on_delete=models.CASCADE)
+    price = models.PositiveIntegerField()
+    
+    def __str__(self):
+        return self.product.title
