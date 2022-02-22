@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% block head %}
+    {% include "layout/head.html" %}
+    {% endblock %}
+</head>
+
+<body>
+
+    <div class="page-loader"></div>
+
+    <div class="wrapper">
+
+        <!--Use class "navbar-fixed" or "navbar-default" -->
+        <!--If you use "navbar-fixed" it will be sticky menu on scroll (only for large screens)-->
+
+        <!-- ======================== Navigation ======================== -->
+
+        {% block menu %}
+        {% include "layout/menu.html" %}
+         {% endblock %}
+
+        <!-- ========================  Header content ======================== -->
+
+        {% block header %}
+        {% include "layout/header.html" %}
+         {% endblock %}
+        <!-- ========================  Icons slider ======================== -->
+
+        
+        {% block body_content %}
+
+        {% endblock %}
+
+        <!-- ================== Footer  ================== -->
+        {% block footer %}
+        {% include "layout/footer.html" %}
+         {% endblock %}
+
+    </div> <!--/wrapper-->
+
+{% block js_files %}
+   {% include "layout/js.html" %}
+{% endblock %}
+</body>
+
+</html>
